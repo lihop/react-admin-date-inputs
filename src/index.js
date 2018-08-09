@@ -4,6 +4,7 @@ import { addField, FieldTitle } from 'ra-core';
 import { DatePicker, TimePicker, DateTimePicker } from 'material-ui-pickers';
 import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
+import viLocale from 'date-fns/locale/vi';
 
 const makePicker = (PickerComponent) => {
   class _makePicker extends Component {
@@ -16,7 +17,6 @@ const makePicker = (PickerComponent) => {
       const {
         input,
         options,
-        locale,
         label,
         source,
         resource,
@@ -29,7 +29,7 @@ const makePicker = (PickerComponent) => {
 
       return (
         <div className="picker">
-          <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locale}>
+          <MuiPickersUtilsProvider utils={DateFnsUtils} locale={viLocale}>
             <PickerComponent
               {...options}
               label={<FieldTitle
